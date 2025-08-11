@@ -13,7 +13,6 @@ import os
 
 load_dotenv()
 
-
 #this function will return the pdf as a long single text
 def get_pdf_text(pdf_docs):
     text=''
