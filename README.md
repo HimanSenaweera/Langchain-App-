@@ -7,7 +7,7 @@ Upload one or more PDFs, the app extracts their text, splits it into manageable 
 **Key features**
 - PDF text extraction via `PyPDF2`
 - Line‑aware chunking with **CharacterTextSplitter** 
-- **FAISS** vector store for fast similarity search
+- **FAISS** vector library for fast similarity search
 - **OpenAIEmbeddings** + **ChatOpenAI** for high‑quality answers
 - **ConversationalRetrievalChain** with **ConversationBufferMemory** to keep chat context
 - Simple, clean **Streamlit** UI 
@@ -16,7 +16,7 @@ Upload one or more PDFs, the app extracts their text, splits it into manageable 
 
 ## 🧱 Architecture
 ```
-PDFs → single text → text chunks → Word Embeddings → store in FAISS vector store → Similarity Search → Conversation Chain 
+PDFs → single text → text chunks → Word Embeddings → FAISS vector library → Conversation Chain (Question → FAISS → LLM → Answer )
 ```
 
 ## ⚙️ Requirements
