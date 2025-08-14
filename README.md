@@ -16,9 +16,23 @@ Upload one or more PDFs, the app extracts their text, splits it into manageable 
 
 ## 🧱 Architecture
 ```
-PDFs → single text → text chunks → Word Embeddings → FAISS vector library → Conversation Chain (Question → FAISS → LLM → Answer )
+PDFs → single text → text chunks → Word Embeddings → FAISS vector library → Conversation Chain
+```
+## 📂 Conversational Chain Flow
+
+```text
+Question
+   ↓
+Word Embedding
+   ↓
+Semantic Search (FAISS)
+   ↓
+Ranked Results
+   ↓
+Text Chunks ──────→ LLM ──────→ Answer
 ```
 
+---
 ## ⚙️ Requirements
 - Python **3.10** (recommended)
 - An **OpenAI API key**
