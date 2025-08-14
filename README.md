@@ -16,8 +16,7 @@ Upload one or more PDFs, the app extracts their text, splits it into manageable 
 
 ## 🧱 Architecture
 ```
-PDFs → PyPDF2 (text) → text chunks → GPT(Word Embeddings) → FAISS (vector store)
-Similarity Search → Conversation Chain (ChatOpenAI + Memory) → Streamlit UI
+PDFs → single text → text chunks → Word Embeddings → store in FAISS vector store → Similarity Search → Conversation Chain 
 ```
 
 ## ⚙️ Requirements
