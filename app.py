@@ -2,10 +2,10 @@ import streamlit as st
 from dotenv import load_dotenv #load_dotenv() allows us to use environment variables from a .env file
 from PyPDF2 import PdfReader #PyPDF2 is a library for reading PDF files as pages
 from langchain.text_splitter import CharacterTextSplitter #CharacterTextSplitter is a class that splits text into chunks based on characters
-from langchain_openai import OpenAIEmbeddings
-from langchain_community.vectorstores import FAISS
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.vectorstores import FAISS
 from langchain.chains import ConversationalRetrievalChain
-from langchain_openai import ChatOpenAI
+from langchain.chat_models import ChatOpenAI
 import htmlTemplates
 from langchain.memory import ConversationBufferMemory
 
@@ -38,7 +38,6 @@ def get_text_chunks(text):
     chunks=text_splitter.split_text(text)
     #split_text is a method that splits the text into chunks based on the parameters we set abov
     return chunks
-    
     
 def get_vectorstore(text_chunks):
     # Use a smaller, faster embedding model
