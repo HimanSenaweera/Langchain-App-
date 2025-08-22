@@ -63,11 +63,6 @@ OPENAI_API_KEY=sk-your-key-here
 
 ---
 
-## 🏃 Run the App
-From the project folder:
-```bash
-streamlit run main.py
-```
 
 **Workflow in the UI**
 1. Use the sidebar to **upload one or more PDFs**.
@@ -77,3 +72,43 @@ streamlit run main.py
 
 ---
 
+# 🚀 Deploying Streamlit App on AWS EC2
+
+## 🔧 Deployment Process
+
+### 1. Connect to EC2 Instance
+Use SSH to connect to your running EC2 instance:
+```bash
+ssh -i "langchain.pem" ec2-user@ec2-3-108-220-64.ap-south-1.compute.amazonaws.com
+```
+
+### 2. Create & Activate Virtual Environment
+```bash
+python3 -m venv myenv
+source myenv/bin/activate
+```
+
+### 3. Copy Files to EC2
+From your **local machine**, upload the project files:
+```bash
+scp -i "langchain.pem" app.py htmlTemplates.py requirements.txt .env ec2-user@ec2-3-108-220-64.ap-south-1.compute.amazonaws.com:/home/ec2-user/
+```
+
+### 4. Install Dependencies
+Inside the EC2 instance:
+```bash
+pip install -r requirements.txt
+```
+
+### 6. Run in Background (Optional)
+To keep it running after disconnecting SSH:
+```bash
+nohup streamlit run app.py --server.port 8501 --server.address 0.0.0.0 &
+```
+---
+
+## 🌍 Access the App
+Once running, open the app in your browser:  
+```
+http://3.108.220.64:8501/
+```
