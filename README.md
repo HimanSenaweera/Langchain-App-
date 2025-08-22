@@ -1,5 +1,5 @@
-## 📚 Multi-PDF Chatbot with LangChain & Streamlit  
-🚀 Deployment: AWS EC2
+# 📚 Multi-PDF Chatbot with LangChain & Streamlit  
+#🚀 Deployment: AWS EC2
 
 ## 📌 Overview
 This project is an interactive **PDF Q&A chatbot** built with **LangChain**, **OpenAI API**, and **Streamlit**.  
