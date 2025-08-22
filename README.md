@@ -31,13 +31,7 @@ Ranked Results
    ↓
 Text Chunks ──────→ LLM ──────→ Answer
 ```
-
----
-## ⚙️ Requirements
-- Python **3.10** (recommended)
-- An **OpenAI API key**
-
-### Python dependencies (pip)
+### Python dependencies
 ```
 streamlit
 langchain
@@ -47,63 +41,18 @@ PyPDF2
 python-dotenv
 tiktoken
 ```
+## 🔧 Deployment Process
 
-You can install them directly:
-```bash
-pip install streamlit langchain openai faiss-cpu PyPDF2 python-dotenv tiktoken
-```
 
-## 🔐 Environment Variables
-The app uses `python-dotenv` to load your API key from a `.env` file:
-```
-OPENAI_API_KEY=sk-your-key-here
-```
-
-- Put this `.env` file in the project root (same folder as `main.py`).
+## 🌍 Access the App
+You can try the deployed application here:  
+👉 [Langchain PDF App](http://3.108.220.64:8501/)
 
 ---
-
-
 **Workflow in the UI**
 1. Use the sidebar to **upload one or more PDFs**.
 2. Click **“Process PDFs”** – the app will extract text, chunk it, embed it, and build the FAISS vector store.
 3. Ask questions in the text box (Ex: “Summarize chapter 2”).
 4. You will Receive answers within seconds.
 
----
-## 🔧 Deployment Process
-
-### 1. Connect to EC2 Instance
-Use SSH to connect to your running EC2 instance:
-```bash
-ssh -i "langchain.pem" ec2-user@ec2-3-108-220-64.ap-south-1.compute.amazonaws.com
-```
-
-### 2. Create & Activate Virtual Environment
-```bash
-python3 -m venv myenv
-source myenv/bin/activate
-```
-
-### 3. Copy Files to EC2
-From your **local machine**, upload the project files:
-```bash
-scp -i "langchain.pem" app.py htmlTemplates.py requirements.txt .env ec2-user@ec2-3-108-220-64.ap-south-1.compute.amazonaws.com:/home/ec2-user/
-```
-
-### 4. Install Dependencies
-Inside the EC2 instance:
-```bash
-pip install -r requirements.txt
-```
-
-### 6. Run in Background (Optional)
-To keep it running after disconnecting SSH:
-```bash
-nohup streamlit run app.py &
-```
----
-
-## 🌍 Access the App
-You can try the deployed application here:  
-👉 [Langchain PDF App](http://3.108.220.64:8501/)
+--
