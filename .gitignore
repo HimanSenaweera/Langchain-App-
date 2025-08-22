@@ -1,7 +1,2 @@
-<<<<<<< HEAD
 #ignore the .env file since it has API keys
 C:\Users\singer\Desktop\MachineLearning\LangChain\Langchain-App-\.env
-=======
-#this contains the API key
-.env
->>>>>>> dfd45ec7c980bdd1d8457bdd7c280cd87b4647c7
