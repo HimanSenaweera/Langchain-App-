@@ -1,9 +1,5 @@
-# Multi-PDF Chatbot with LangChain & Streamlit
-
-[![LangChain](https://img.shields.io/badge/LangChain-Chatbot-blue)](https://www.langchain.com/)  
-[![Streamlit](https://img.shields.io/badge/Streamlit-App-red)](https://streamlit.io/)  
-[![AWS EC2](https://img.shields.io/badge/AWS-EC2-orange)](https://aws.amazon.com/ec2/)
-
+#                                                                 📚 Multi-PDF Chatbot with LangChain & Streamlit  
+#                                                                            🚀 Deployment: AWS EC2
 
 
 ## 📌 Overview
