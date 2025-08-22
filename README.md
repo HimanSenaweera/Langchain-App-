@@ -105,7 +105,5 @@ nohup streamlit run app.py &
 ---
 
 ## 🌍 Access the App
-Once running, open the app in your browser:  
-```
-http://3.108.220.64:8501/
-```
+You can try the deployed application here:  
+👉 [Langchain PDF App](http://3.108.220.64:8501/)
