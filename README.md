@@ -63,7 +63,7 @@ You can try the deployed application here:
 👉 [Langchain PDF App](http://3.108.220.64:8501/)
 
 ---
-**Workflow in the UI**
+## **Workflow in the UI**
 1. Use the sidebar to **upload one or more PDFs**.
 2. Click **“Process PDFs”** – the app will extract text, chunk it, embed it, and build the FAISS vector store.
 3. Ask questions in the text box (Ex: “Summarize chapter 2”).
