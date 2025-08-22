@@ -49,7 +49,7 @@ tiktoken
   <img src="code.png" width="800">
 </p>
 <p align="center">
-  <img src="code.png" width="800">
+  <img src="terminal.png" width="800">
 </p>
 <p align="center">
   <img src="security.png" width="800">
