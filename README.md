@@ -68,5 +68,3 @@ You can try the deployed application here:
 2. Click **“Process PDFs”** – the app will extract text, chunk it, embed it, and build the FAISS vector store.
 3. Ask questions in the text box (Ex: “Summarize chapter 2”).
 4. You will Receive answers within seconds.
-
---
