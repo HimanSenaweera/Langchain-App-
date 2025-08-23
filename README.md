@@ -56,13 +56,6 @@ tiktoken
 <p align="center">
   <img src="security.png" width="800">
 </p>
-<p align="center">
-  <img src="service.png" width="800">
-</p>
-<p align="center">
-  <img src="health.png" width="800">
-</p>
-
 ---
 ## 🌍 Access the App
 You can try the deployed application here:  
