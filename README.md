@@ -43,6 +43,7 @@ PyPDF2
 python-dotenv
 tiktoken
 ```
+---
 ## 🔧 Deployment Process
 <p align="center">
   <img src="EC2.png" width="800">
@@ -54,9 +55,9 @@ tiktoken
   <img src="terminal.png" width="800">
 </p>
 <p align="center">
-  <img src="security.png" width="800">
+  <img src="security1.png" width="800">
 </p>
----
+
 ## 🌍 Access the App
 You can try the deployed application here:  
 👉 [Langchain PDF App](http://3.108.220.64:8501/)
