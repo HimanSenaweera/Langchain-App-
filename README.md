@@ -64,10 +64,7 @@ tiktoken
   <img src="images/code.png" width="800">
 </p>
 <p align="center">
-  <img src="images/terminal.png" width="800">
-</p>
-<p align="center">
-  <img src="images/security1.png" width="800">
+  <img src="images/security.png" width="800">
 </p>
 
 ---
@@ -79,7 +76,7 @@ You can try the deployed application here:
 ---
 
 ## **Workflow in the UI**
->>>>>>> fe348cc2cf23b606172509cdd7cf45a283ac3f32
+
 1. Use the sidebar to **upload one or more PDFs** .
 2. Click **“Process PDFs”** .
 3. Ask questions in the text box .
