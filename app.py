@@ -6,10 +6,7 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
-import htmlTemplates
 from langchain.memory import ConversationBufferMemory
-
-import os
 
 load_dotenv()
 
@@ -22,7 +19,6 @@ def get_pdf_text(pdf_docs):
         for page in pdf_reader.pages:
             text+=page.extract_text()
     return text
-    
     
     
 def get_text_chunks(text):
@@ -56,57 +52,62 @@ def get_conversation_chain(vectorstore):
     
     
 def handle_user_input(user_question):
-    response = st.session_state.conversation({
-            "question": user_question,
-            "chat_history": st.session_state.chat_history
-        })
-    st.write(response['answer'])
+    response = st.session_state['conversation']({
+        "question": user_question
+    })
+    st.success(response['answer'])
+    
+    # Display chat history
+    # st.subheader("Chat History")
+    # if (st.session_state['conversation'].memory):
+    #     for i, message in enumerate(st.session_state['conversation'].memory.chat_memory.messages):
+    #         if message.type == "human":
+    #             st.markdown(f"**You:** {message.content}")
+    #         else:
+    #             st.markdown(f"**Bot:** {message.content}")
     
     
 def main():
-    load_dotenv()  # Load environment variables from .env file
     st.set_page_config(page_title="My Streamlit App", page_icon=":books:")
     
-    st.write(htmlTemplates.css, unsafe_allow_html=True)
-    
-    if 'conversation' not in st.session_state:
-        st.session_state.conversation = None
-    if 'chat_history' not in st.session_state:
-        st.session_state.chat_history = None
     # Initialize the conversation state if it doesn't exist
+    if 'conversation' not in st.session_state:
+        st.session_state['conversation'] = None
     
     
     st.header("Welcome to My Streamlit App Chat with multiple PDFs")
     user_question=st.text_input("Ask a question about your PDFs:")
 
-    if user_question:
-        handle_user_input(user_question)
-    
-    
-
     with st.sidebar:
         st.subheader("Upload PDFs")
         pdf_docs=st.file_uploader(
             "Upload PDF files then process",accept_multiple_files=True)
-        if st.button("Process PDFs"):
-            #do everything inside this while spinning 
-            with st.spinner("Processing PDFs..."):
-                #get pdf text
-                raw_text=get_pdf_text(pdf_docs)
-                #st.write(raw_text)
-                
-                #get the text chunks
-                text_chunks=get_text_chunks(raw_text)
-                #st.write(text_chunks)
+        
+        if pdf_docs:
+            if st.button("Process PDFs"):
+                with st.spinner("Processing PDFs..."):
+                    #get pdf text
+                    raw_text=get_pdf_text(pdf_docs)
+                    #st.write(raw_text)
+                    
+                    #get the text chunks
+                    text_chunks=get_text_chunks(raw_text)
+                    #st.write(text_chunks)
 
-            
-                #create vector store
-                vectorstore=get_vectorstore(text_chunks)
-                
-                #create conversation chain
-                st.session_state.conversation=get_conversation_chain(vectorstore)
-                
-                
+                    
+                    #create vector store
+                    vectorstore=get_vectorstore(text_chunks)
+                        
+                    #create conversation chain
+                    st.session_state['conversation']=get_conversation_chain(vectorstore)
+                    
+                    
+    if user_question and pdf_docs:
+        handle_user_input(user_question)
+        
+    if user_question and not pdf_docs:
+        st.error("please Upload the PDFs first")
+        
                 
 if __name__ == "__main__":
-    main()
+    main()  
